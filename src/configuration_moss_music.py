@@ -24,6 +24,9 @@ class MossMusicEncoderConfig:
     _attn_implementation: str = "eager"
     pretrained_path: str = ""
 
+    n_window: int = 200
+    conv_chunksize: int = 64
+
     deepstack_encoder_layer_indexes: List[int] = field(
         default_factory=lambda: [8, 16, 24]
     )
@@ -55,6 +58,8 @@ class MossMusicEncoderConfig:
             "layer_norm_eps": self.layer_norm_eps,
             "_attn_implementation": self._attn_implementation,
             "pretrained_path": self.pretrained_path,
+            "n_window": self.n_window,
+            "conv_chunksize": self.conv_chunksize,
             "deepstack_encoder_layer_indexes": list(
                 self.deepstack_encoder_layer_indexes or []
             ),

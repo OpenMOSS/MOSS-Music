@@ -50,6 +50,7 @@ analysis.
 - [Quickstart](#quickstart)
   - [Environment Setup](#environment-setup)
   - [SGLang Serving](#sglang-serving)
+  - [Local Inference (Transformers)](#local-inference-transformers)
   - [Gradio App](#gradio-app)
 - [More Information](#more-information)
 - [LICENSE](#license)
@@ -355,6 +356,23 @@ You can replace `./weights/MOSS-Music-8B-Instruct` with
 
 If you use the default `torch==2.9.1+cu128` runtime, installing
 `nvidia-cudnn-cu12==9.16.0.29` is recommended before starting `sglang serve`.
+
+### Local Inference (Transformers)
+
+For a quick local sanity check without SGLang, simply run:
+
+```bash
+python infer.py
+```
+
+Edit `MODEL_PATH`, `AUDIO_PATH`, the prompt and the sampling
+hyper-parameters at the top of `infer.py` to point to your own model
+weights and audio.
+
+> [!NOTE]
+> This Transformers path is mainly for quick verification and debugging.
+> For best generation quality and throughput, please prefer
+> [SGLang Serving](#sglang-serving).
 
 ### Gradio App
 

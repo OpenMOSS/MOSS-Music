@@ -46,6 +46,7 @@
 - [快速开始](#快速开始)
   - [环境配置](#环境配置)
   - [SGLang 服务](#sglang-服务)
+  - [本地推理 (Transformers)](#本地推理-transformers)
   - [Gradio 应用](#gradio-应用)
 - [更多信息](#更多信息)
 - [LICENSE](#license)
@@ -314,6 +315,21 @@ sglang serve \
 
 如果你使用的是默认的 `torch==2.9.1+cu128` 运行时，建议在启动
 `sglang serve` 之前先安装 `nvidia-cudnn-cu12==9.16.0.29`。
+
+### 本地推理 (Transformers)
+
+如果只是想本地快速跑通 demo，可以直接运行仓库自带的 `infer.py`：
+
+```bash
+python infer.py
+```
+
+修改 `infer.py` 顶部的 `MODEL_PATH`、`AUDIO_PATH`、prompt 和采样超参，即可
+切换到自己的模型权重与音频。
+
+> [!NOTE]
+> 这条 Transformers 路径主要用于快速验证与调试，正式使用请优先选择
+> [SGLang 服务](#sglang-服务) 以获得最佳生成质量和吞吐。
 
 ### Gradio 应用
 
